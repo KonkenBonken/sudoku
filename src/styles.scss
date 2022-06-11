@@ -17,10 +17,9 @@ html {
   height: 90vmin;
   position: fixed;
   top: 5vmin;
-  left: 5vmin;
+  left: 2vmin;
   flex-direction: row;
   flex-wrap: wrap;
-  // box-sizing: content-box;
 }
 
 .row {
@@ -44,5 +43,27 @@ html {
 
   &[highlight] {
     animation: mark 1s ease-out;
+  }
+}
+
+.ui {
+  position: fixed;
+  width: min(calc(100vw - 94vmin),20vmin);
+  height: 80vmin;
+  top: 5vmin;
+  left: 92vmin;
+
+  > * {
+    display: block;
+    width: 100%;
+    min-height: 5vmin;
+    border: 1px #000 solid;
+    background-color: #aaa;
+    cursor: pointer;
+
+    &[disabled] {
+      background-color: #888;
+      cursor: progress;
+    }
   }
 }
