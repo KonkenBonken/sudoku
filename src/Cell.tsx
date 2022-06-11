@@ -25,4 +25,11 @@ class Cell {
     return sudoku.cells.map(row => row[this.coords.x])
       .filter(cell => cell !== this);
   }
+
+  get legalValues() {
+    return [...Array(10).keys()].filter(n => !(
+      this.row.some(cell => n === cell.value) ||
+      this.col.some(cell => n === cell.value)
+    ))
+  }
 }
