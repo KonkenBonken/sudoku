@@ -40,4 +40,10 @@ class Sudoku {
     return tryCount;
   }
 
+  create(difficulty = 10) {
+    this.fill();
+    for (const cell of this.cells)
+      if (Math.random() > 1 / difficulty)
+        cell.value = undefined;
+  }
 }
