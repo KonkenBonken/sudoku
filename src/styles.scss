@@ -25,6 +25,11 @@ html {
 .row {
   width: 90vmin;
   height: 10vmin;
+
+  &:nth-child(4),
+  &:nth-child(7) {
+    border-top: 4px #000 solid;
+  }
 }
 
 .cell {
@@ -43,6 +48,11 @@ html {
 
   &[highlight] {
     animation: mark 1s ease-out;
+  }
+
+  &:nth-child(4),
+  &:nth-child(7) {
+    border-left-width: 4px;
   }
 }
 
