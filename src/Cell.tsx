@@ -31,4 +31,9 @@ class Cell {
       this.col.some(cell => n === cell.value)
     ))
   }
+
+  highlight() {
+    this.el.setAttribute('highlight', '');
+    setTimeout(() => this.el.removeAttribute('highlight'), 1000);
+  }
 }

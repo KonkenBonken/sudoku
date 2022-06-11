@@ -32,4 +32,13 @@ html {
   display: inline-grid;
   place-items: center;
   font-size: 8vmin;
+  background-color: #fff;
+}
+@keyframes mark {
+  from {
+    background-color: #faa;
+  }
+}
+.grid > .row .cell[highlight] {
+  animation: mark 1s ease-out;
 }

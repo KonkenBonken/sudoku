@@ -21,7 +21,7 @@ class Sudoku {
   *clear() {
     for (const cell of this.cells.filter(cell => cell.value !== undefined)) {
       cell.value = undefined;
-      yield 1;
+      yield cell;
     }
   }
 
@@ -36,7 +36,7 @@ class Sudoku {
         if (values.length == 0)
           continue loop;
         cell.value = values[Math.floor(Math.random() * cell.legalValues.length)]
-        yield 3;
+        yield cell;
       }
       break loop;
     }
@@ -48,7 +48,7 @@ class Sudoku {
     for (const cell of this.cells) {
       if (Math.random() > 1 / difficulty)
         cell.value = undefined;
-      yield 3;
+      yield cell;
     }
   }
 }
