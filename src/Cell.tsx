@@ -26,7 +26,7 @@ class Cell {
   }
 
   get legalValues() {
-    return [...Array(10).keys()].filter(n => !(
+    return Array(9).fill(0).map((_, i) => i + 1).filter(n => !(
       this.row.some(cell => n === cell.value) ||
       this.col.some(cell => n === cell.value)
     ))
