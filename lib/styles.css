@@ -21,11 +21,13 @@ html {
   flex-direction: row;
   flex-wrap: wrap;
 }
-.grid > .row {
+
+.row {
   width: 90vmin;
   height: 10vmin;
 }
-.grid > .row .cell {
+
+.cell {
   width: 10vmin;
   height: 10vmin;
   border: 1px #000 solid;
@@ -39,6 +41,6 @@ html {
     background-color: #faa;
   }
 }
-.grid > .row .cell[highlight] {
+.cell[highlight] {
   animation: mark 1s ease-out;
 }

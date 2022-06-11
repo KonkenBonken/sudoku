@@ -21,27 +21,28 @@ html {
   flex-direction: row;
   flex-wrap: wrap;
   // box-sizing: content-box;
-  > .row {
-    width: 90vmin;
-    height: 10vmin;
+}
 
-    .cell {
-      width: 10vmin;
-      height: 10vmin;
-      border: 1px #000 solid;
-      display: inline-grid;
-      place-items: center;
-      font-size: 8vmin;
-      background-color: #fff;
-      @keyframes mark {
-        from {
-          background-color: #faa;
-        }
-      };
+.row {
+  width: 90vmin;
+  height: 10vmin;
+}
 
-      &[highlight] {
-        animation: mark 1s ease-out;
-      }
+.cell {
+  width: 10vmin;
+  height: 10vmin;
+  border: 1px #000 solid;
+  display: inline-grid;
+  place-items: center;
+  font-size: 8vmin;
+  background-color: #fff;
+  @keyframes mark {
+    from {
+      background-color: #faa;
     }
+  };
+
+  &[highlight] {
+    animation: mark 1s ease-out;
   }
 }
