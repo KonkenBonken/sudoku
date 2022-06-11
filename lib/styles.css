@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root,
+body,
+html {
+  font-size: 16px;
+  width: 100vw;
+  height: 100vh;
+}
+
+.grid {
+  width: 90vmin;
+  height: 90vmin;
+  position: fixed;
+  top: 5vmin;
+  left: 5vmin;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.grid > .row {
+  width: 90vmin;
+  height: 10vmin;
+}
+.grid > .row .cell {
+  width: 10vmin;
+  height: 10vmin;
+  border: 1px #000 solid;
+  display: inline-grid;
+  place-items: center;
+  font-size: 8vmin;
+}
