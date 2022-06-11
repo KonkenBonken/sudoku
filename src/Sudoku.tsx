@@ -21,10 +21,11 @@ class Sudoku {
   }
 
   fill() {
-    let clearCount = -1;
+    let tryCount = 0;
     loop: while (true) {
       this.clear();
-      clearCount++;
+      if (++tryCount >= 1000)
+        throw `fill failed after ${tryCount} tries`;
       for (const cell of this.cells.flat()) {
         let values = cell.legalValues;
         if (values.length == 0)
@@ -33,7 +34,7 @@ class Sudoku {
       }
       break loop;
     }
-    return clearCount;
+    return tryCount;
   }
 
 }
