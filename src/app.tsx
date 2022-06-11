@@ -6,4 +6,4 @@ body.append(sudoku.el, <div class="ui">{rerun}{skip}</div>);
 
 rerun.addEventListener('click', () => Animate(sudoku.create()));
 
-Animate(sudoku.create())
+Animate(sudoku.create(0))
