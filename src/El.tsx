@@ -6,9 +6,11 @@ function El(tagName, attrs, ...children): HTMLElement {
 
   const elem = document.createElement(tagName);
 
-  for (const [key, value] of Object.entries(attrs) as [string, string][])
+  for (const [key, value] of Object.entries(attrs) as [string, any][])
     if (key === 'class')
       elem.classList.add(...value.split(' '))
+    else if (key.startsWith('on'))
+      elem.addEventListener(key.substr(2), value)
     else {
       elem[key] = value;
       elem.setAttribute(key, value)
