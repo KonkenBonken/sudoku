@@ -17,11 +17,11 @@ class Cell {
   }
 
   get row() {
-    return sudoku.cells[this.coords.y]
+    return sudoku.grid[this.coords.y]
       .filter(cell => cell !== this);
   }
   get col() {
-    return sudoku.cells.map(row => row[this.coords.x])
+    return sudoku.grid.map(row => row[this.coords.x])
       .filter(cell => cell !== this);
   }
 

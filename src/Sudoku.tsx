@@ -1,22 +1,25 @@
 class Sudoku {
   el: HTMLElement;
-  cells: Cell[][];
+  grid: Cell[][] = [];
 
   constructor() {
     this.el = <div class="grid" />;
-    this.cells = [];
 
     for (let y = 0; y < 9; y++) {
       const row = <div class="row" />;
       this.el.append(row);
-      this.cells[y] = Array(9).fill(0).map((_, x) => new Cell({ x, y }));
-      row.append(...this.cells[y].map(({ el }) => el));
+      this.grid[y] = Array(9).fill(0).map((_, x) => new Cell({ x, y }));
+      row.append(...this.grid[y].map(({ el }) => el));
     }
 
   }
 
+  get cells() {
+    return this.grid.flat()
+  }
+
   clear() {
-    for (const cell of this.cells.flat())
+    for (const cell of this.cells)
       cell.value = undefined;
   }
 
@@ -26,7 +29,7 @@ class Sudoku {
       this.clear();
       if (++tryCount >= 1000)
         throw `fill failed after ${tryCount} tries`;
-      for (const cell of this.cells.flat()) {
+      for (const cell of this.cells) {
         let values = cell.legalValues;
         if (values.length == 0)
           continue loop;
