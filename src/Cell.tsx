@@ -10,8 +10,7 @@ class Cell {
 
   set value(n: number | undefined) {
     this._value = n;
-    if (n !== undefined)
-      this.el.innerHTML = n.toString();
+    this.el.innerHTML = (n ?? '&nbsp;').toString();
   }
   get value(): number | undefined {
     return this._value;
