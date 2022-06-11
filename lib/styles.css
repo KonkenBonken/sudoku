@@ -26,6 +26,9 @@ html {
   width: 90vmin;
   height: 10vmin;
 }
+.row:nth-child(4), .row:nth-child(7) {
+  border-top: 4px #000 solid;
+}
 
 .cell {
   width: 10vmin;
@@ -43,6 +46,9 @@ html {
 }
 .cell[highlight] {
   animation: mark 1s ease-out;
+}
+.cell:nth-child(4), .cell:nth-child(7) {
+  border-left-width: 4px;
 }
 
 .ui {

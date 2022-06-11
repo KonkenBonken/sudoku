@@ -30,6 +30,7 @@ class Cell {
       this.row.some(cell => n === cell.value) ||
       this.col.some(cell => n === cell.value)
     ))
+    //FIXME: 3x3 squares
   }
 
   highlight() {
