@@ -44,11 +44,15 @@ class Sudoku {
   }
 
   *create(difficulty = 10) {
+    rerun.disabled = true;
+    skip.disabled = false;
     yield* this.fill();
     for (const cell of this.cells) {
       if (Math.random() > 1 / difficulty)
         cell.value = undefined;
       yield cell;
     }
+    rerun.disabled = false;
+    skip.disabled = true;
   }
 }
