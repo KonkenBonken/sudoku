@@ -18,6 +18,13 @@ class Sudoku {
     return this.grid.flat()
   }
 
+  row(y) {
+    return this.grid[y];
+  }
+  col(x) {
+    return this.grid.map(row => row[x]);
+  }
+
   *clear() {
     for (const cell of this.cells.filter(cell => cell.value !== undefined)) {
       cell.value = undefined;
