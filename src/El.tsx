@@ -1,4 +1,6 @@
-function El(tagName, attrs = {}, ...children): HTMLElement {
+function El(tagName, attrs, ...children): HTMLElement {
+  if (attrs == null) attrs = {};
+
   if (typeof tagName !== 'string')
     return tagName(attrs);
 
