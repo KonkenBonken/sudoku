@@ -39,10 +39,13 @@ class Sudoku {
       if (++tryCount >= 1000)
         throw `fill failed after ${tryCount} tries`;
       for (const row of this.grid) {
-        let arr = [...Array(9).keys()].sort(() => Math.random() - .5);
-        for (const i in row) {
-          row[i].value = arr[i];
-          yield row[i];
+        let arr = Array(9).fill(0).map((_, i) => i + 1).sort(() => Math.random() - .5);
+        for (const x in row) {
+          const i = arr.findIndex(n => !this.col(x).map(c => c.value).includes(n)),
+            value = arr.splice(i, 1)[0];
+          if (!value || i == -1) continue loop;
+          row[x].value = value;
+          yield row[x];
         }
       }
       break loop;
