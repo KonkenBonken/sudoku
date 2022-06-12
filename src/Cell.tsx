@@ -16,6 +16,17 @@ class Cell {
     return this._value;
   }
 
+  get squareIndex() {
+    return Math.floor(this.coords.x / 3) + Math.floor(this.coords.y / 3) * 3;
+  }
+
+  get square() {
+    return sudoku.cells
+      .filter(cell =>
+        cell.squareIndex === this.squareIndex &&
+        cell !== this
+      );
+  }
   get row() {
     return sudoku.grid[this.coords.y]
       .filter(cell => cell !== this);
@@ -28,9 +39,9 @@ class Cell {
   get legalValues() {
     return Array(9).fill(0).map((_, i) => i + 1).filter(n => !(
       this.row.some(cell => n === cell.value) ||
-      this.col.some(cell => n === cell.value)
-    ))
-    //FIXME: 3x3 squares
+      this.col.some(cell => n === cell.value) ||
+      this.square.some(cell => n === cell.value)
+    ));
   }
 
   highlight(hl: Hl) {
