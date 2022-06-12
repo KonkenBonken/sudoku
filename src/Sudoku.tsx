@@ -19,7 +19,7 @@ class Sudoku {
   }
 
   *clear() {
-    for (const cell of this.cells.filter(cell => cell.value !== undefined)) {
+    for (const cell of this.cells.filter(cell => cell.value !== undefined).reverse()) {
       cell.value = undefined;
       yield [cell, Hl.clear];
     }
