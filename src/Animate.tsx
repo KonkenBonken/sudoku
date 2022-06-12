@@ -1,10 +1,12 @@
 function Animate(generator, speed = 4) {
   const nextFrame = () => {
-    const { value: cell, done }: { value: Cell, done: boolean } = generator.next();
+    let { value: cells, done }: { value: Cell | Cell[], done: boolean } = generator.next();
     if (done) return;
     skip.addEventListener('click', () => [...generator], { once: true })
     setTimeout(nextFrame, speed);
-    cell.highlight();
+    if (!Array.isArray(cells)) cells = [cells];
+    for (const cell of cells)
+      cell.highlight();
   }
   nextFrame();
 }
