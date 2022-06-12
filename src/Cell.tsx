@@ -33,8 +33,12 @@ class Cell {
     //FIXME: 3x3 squares
   }
 
-  highlight() {
+  highlight(hl: Hl) {
     this.el.setAttribute('highlight', '');
-    setTimeout(() => this.el.removeAttribute('highlight'), 1000);
+    if (hl === Hl.set)
+      this.el.setAttribute('set', '');
+    else if (hl === Hl.clear)
+      this.el.setAttribute('clear', '');
+    setTimeout(() => ['highlight', 'set', 'clear'].forEach(attr => this.el.removeAttribute(attr)), 1000);
   }
 }

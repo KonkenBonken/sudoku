@@ -42,12 +42,20 @@ html {
   background-color: #fff;
   @keyframes mark {
     from {
-      background-color: #faa;
+      background-color: var(--hl-clr);
     }
   };
 
   &[highlight] {
     animation: mark 1s ease-out;
+
+    &[set] {
+      --hl-clr: #afa;
+    }
+
+    &[clear] {
+      --hl-clr: #faa;
+    }
   }
 
   &:nth-child(4),

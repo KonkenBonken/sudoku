@@ -41,11 +41,17 @@ html {
 }
 @keyframes mark {
   from {
-    background-color: #faa;
+    background-color: var(--hl-clr);
   }
 }
 .cell[highlight] {
   animation: mark 1s ease-out;
+}
+.cell[highlight][set] {
+  --hl-clr: #afa;
+}
+.cell[highlight][clear] {
+  --hl-clr: #faa;
 }
 .cell:nth-child(4), .cell:nth-child(7) {
   border-left-width: 4px;
