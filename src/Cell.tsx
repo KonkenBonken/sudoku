@@ -40,11 +40,11 @@ class Cell {
   }
 
   get legalValues() {
-    return Array(9).fill(0).map((_, i) => i + 1).filter(n => !(
-      this.row.some(cell => n == +cell) ||
-      this.col.some(cell => n == +cell) ||
-      this.square.some(cell => n == +cell)
-    ));
+    return Array(9).fill(0).map((_, i) => i + 1).filter(n =>
+      this.row.every(cell => n !== +cell) &&
+      this.col.every(cell => n !== +cell) &&
+      this.square.every(cell => n !== +cell)
+    );
   }
 
   highlight(hl: Hl) {
